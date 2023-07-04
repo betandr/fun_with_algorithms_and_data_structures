@@ -2,7 +2,7 @@
 
 _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 
-## Structures
+## Data Structures
 * Node Chain
 * Linked List
 * Stack
