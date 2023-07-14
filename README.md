@@ -3,13 +3,13 @@
 _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 
 ## Data Structures
-* Node Chain
+* [Node Chain](node_chain)
 * Linked List
 * Stack
 * Queue
 * Binary Tree
 * Hash Table
-* AVL Tree (balancing functions not completed)
+* AVL Tree
 
 ## Algorithms
 * Sorting
