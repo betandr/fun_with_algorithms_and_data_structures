@@ -5,12 +5,16 @@ import (
 	"strings"
 )
 
-type Node[T any] struct {
+type value interface {
+	String() string
+}
+
+type Node[T value] struct {
 	Value T
 	Next  *Node[T]
 }
 
-func NodesToString(n *Node[string]) string {
+func (n *Node[value]) String() string {
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "%s", n.Value)
 
