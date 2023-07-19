@@ -5,7 +5,7 @@ _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 ## Data Structures
 * [Node Chain](node_chain/node_chain.go)
 * [Linked List](linked_list/linked_list.go)
-* Stack
+* [Stack](stack/stack.go)
 * Queue
 * Binary Tree
 * Hash Table
