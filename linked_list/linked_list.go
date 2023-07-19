@@ -16,8 +16,8 @@ type LinkedList[T any] struct {
 	Count int
 }
 
-// addHead adds a node to the head of the list.
-func (l *LinkedList[T]) addHead(n *Node[T]) {
+// AddHead adds a node to the head of the list.
+func (l *LinkedList[T]) AddHead(n *Node[T]) {
 	temp := l.Head
 	l.Head = n
 	l.Head.Next = temp
@@ -27,8 +27,8 @@ func (l *LinkedList[T]) addHead(n *Node[T]) {
 	}
 }
 
-// addTail adds a node to the tail of the list.
-func (l *LinkedList[T]) addTail(n *Node[T]) {
+// AddTail adds a node to the tail of the list.
+func (l *LinkedList[T]) AddTail(n *Node[T]) {
 	if l.Count == 0 {
 		l.Head = n
 		l.Tail = n
@@ -41,8 +41,8 @@ func (l *LinkedList[T]) addTail(n *Node[T]) {
 	l.Count++
 }
 
-// removeHead removes a node from the head of the list.
-func (l *LinkedList[T]) removeHead() {
+// RemoveHead removes a node from the head of the list.
+func (l *LinkedList[T]) RemoveHead() {
 	if l.Count != 0 {
 		l.Head = l.Head.Next
 		l.Count--
@@ -53,9 +53,9 @@ func (l *LinkedList[T]) removeHead() {
 
 }
 
-// removeTail removes a node from the tail of the list.
+// RemoveTail removes a node from the tail of the list.
 // Loops through entire list so decreases in performance by O(n)
-func (l *LinkedList[T]) removeTail() {
+func (l *LinkedList[T]) RemoveTail() {
 	if l.Count != 0 {
 		if l.Count == 1 {
 			l.Head = nil

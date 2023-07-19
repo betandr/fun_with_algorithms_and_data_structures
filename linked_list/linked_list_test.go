@@ -19,7 +19,7 @@ func TestAddToHead(t *testing.T) {
 
 	var ll LinkedList[string]
 
-	ll.addHead(&Node[string]{Value: "ONE"})
+	ll.AddHead(&Node[string]{Value: "ONE"})
 
 	want := "HEAD->ONE->TAIL"
 	got := ll.String()
@@ -34,9 +34,9 @@ func TestAddMultipleToHead(t *testing.T) {
 
 	var ll LinkedList[string]
 
-	ll.addHead(&Node[string]{Value: "THREE"})
-	ll.addHead(&Node[string]{Value: "TWO"})
-	ll.addHead(&Node[string]{Value: "ONE"})
+	ll.AddHead(&Node[string]{Value: "THREE"})
+	ll.AddHead(&Node[string]{Value: "TWO"})
+	ll.AddHead(&Node[string]{Value: "ONE"})
 
 	want := "HEAD->ONE->TWO->THREE->TAIL"
 	got := ll.String()
@@ -50,7 +50,7 @@ func TestAddMultipleToHead(t *testing.T) {
 func TestAddToTail(t *testing.T) {
 	var ll LinkedList[string]
 
-	ll.addTail(&Node[string]{Value: "ONE"})
+	ll.AddTail(&Node[string]{Value: "ONE"})
 
 	want := "HEAD->ONE->TAIL"
 	got := ll.String()
@@ -63,9 +63,9 @@ func TestAddToTail(t *testing.T) {
 func TestMultipleAddToTail(t *testing.T) {
 	var ll LinkedList[string]
 
-	ll.addTail(&Node[string]{Value: "ONE"})
-	ll.addTail(&Node[string]{Value: "TWO"})
-	ll.addTail(&Node[string]{Value: "THREE"})
+	ll.AddTail(&Node[string]{Value: "ONE"})
+	ll.AddTail(&Node[string]{Value: "TWO"})
+	ll.AddTail(&Node[string]{Value: "THREE"})
 
 	want := "HEAD->ONE->TWO->THREE->TAIL"
 	got := ll.String()
@@ -78,11 +78,11 @@ func TestMultipleAddToTail(t *testing.T) {
 func TestRemoveHead(t *testing.T) {
 	var ll LinkedList[string]
 
-	ll.addTail(&Node[string]{Value: "ONE"})
-	ll.addTail(&Node[string]{Value: "TWO"})
-	ll.addTail(&Node[string]{Value: "THREE"})
+	ll.AddTail(&Node[string]{Value: "ONE"})
+	ll.AddTail(&Node[string]{Value: "TWO"})
+	ll.AddTail(&Node[string]{Value: "THREE"})
 
-	ll.removeHead()
+	ll.RemoveHead()
 
 	want := "HEAD->TWO->THREE->TAIL"
 	got := ll.String()
@@ -95,11 +95,11 @@ func TestRemoveHead(t *testing.T) {
 func TestRemoveTail(t *testing.T) {
 	var ll LinkedList[string]
 
-	ll.addTail(&Node[string]{Value: "ONE"})
-	ll.addTail(&Node[string]{Value: "TWO"})
-	ll.addTail(&Node[string]{Value: "THREE"})
+	ll.AddTail(&Node[string]{Value: "ONE"})
+	ll.AddTail(&Node[string]{Value: "TWO"})
+	ll.AddTail(&Node[string]{Value: "THREE"})
 
-	ll.removeTail()
+	ll.RemoveTail()
 
 	want := "HEAD->ONE->TWO->TAIL"
 	got := ll.String()
@@ -112,9 +112,9 @@ func TestRemoveTail(t *testing.T) {
 func TestEnumerate(t *testing.T) {
 	var ll LinkedList[string]
 
-	ll.addTail(&Node[string]{Value: "1"})
-	ll.addTail(&Node[string]{Value: "2"})
-	ll.addTail(&Node[string]{Value: "3"})
+	ll.AddTail(&Node[string]{Value: "1"})
+	ll.AddTail(&Node[string]{Value: "2"})
+	ll.AddTail(&Node[string]{Value: "3"})
 
 	got := []string{}
 
