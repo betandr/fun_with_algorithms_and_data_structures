@@ -44,11 +44,11 @@ func (s *Stack[T]) Pop() (T, error) {
 	return r, nil
 }
 
-func (l *Stack[T]) String() string {
+func (s *Stack[T]) String() string {
 	var sb strings.Builder
 	fmt.Fprint(&sb, "TOP")
 
-	node := l.linkedList.Head
+	node := s.linkedList.Head
 	for node != nil {
 		fmt.Fprintf(&sb, "\n%v", node.Value)
 		node = node.Next
