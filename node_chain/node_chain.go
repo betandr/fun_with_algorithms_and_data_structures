@@ -5,23 +5,19 @@ import (
 	"strings"
 )
 
-type value interface {
-	String() string
-}
-
-type Node[T value] struct {
+type Node[T any] struct {
 	Value T
 	Next  *Node[T]
 }
 
 func (n *Node[value]) String() string {
 	var sb strings.Builder
-	fmt.Fprintf(&sb, "%s", n.Value)
+	fmt.Fprintf(&sb, "%v", n.Value)
 
 	curr := n
 	for curr.Next != nil {
 		curr = curr.Next
-		fmt.Fprintf(&sb, " %s", curr.Value)
+		fmt.Fprintf(&sb, " %v", curr.Value)
 	}
 
 	return sb.String()
