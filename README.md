@@ -12,14 +12,13 @@ _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 * [Heap](heap/heap.go)
 
 ## Algorithms
-* Sorting
-* Bubble Sort
-* Insertion Sort
-* Selection Sort
-* Merge Sort
-* Quick Sort
-* Naïve String Searching
-* Boyer-Moore-Horspool String Searching
+* [Sorting](sort/sort.go)
+* [Bubble Sort](sort/sort.go#L5)
+* [Insertion Sort](sort/sort.go#L19)
+* [Selection Sort](sort/sort.go#L35)
+* [Merge Sort](sort/sort.go#L82)
+* [Quick Sort](sort/sort.go#L92)
+* Heap Sort
 * Dijkstra's shortest path
 * Binary Search
 
