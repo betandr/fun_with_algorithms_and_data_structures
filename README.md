@@ -8,7 +8,6 @@ _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 * [Stack](stack/stack.go)
 * [Queue](queue/queue.go)
 * [Binary Tree](binary_tree/binary_tree.go)
-* [Hash Table](hash_table/hash_table.go)
 * [AVL Tree](avl_tree/avl_tree.go)
 
 ## Algorithms
