@@ -18,7 +18,6 @@ _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 * [Selection Sort](sort/sort.go#L35)
 * [Merge Sort](sort/sort.go#L82)
 * [Quick Sort](sort/sort.go#L92)
-* Heap Sort
 * Dijkstra's shortest path
 * Binary Search
 

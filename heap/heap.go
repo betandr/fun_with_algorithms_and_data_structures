@@ -1,6 +1,8 @@
 package heap
 
-import "golang.org/x/exp/constraints"
+import (
+	"golang.org/x/exp/constraints"
+)
 
 type Heap[T constraints.Ordered] struct {
 	Data []T
@@ -12,12 +14,12 @@ func NewHeap[T constraints.Ordered]() *Heap[T] {
 	}
 }
 
-func (h *Heap[T]) Insert(v T) {
+func (h *Heap[T]) Push(f func(T, T) bool, v T) {
 	h.Data = append(h.Data, v)
-	h.heapifyUp((len(h.Data) - 1))
+	h.heapifyUp(f, (len(h.Data) - 1))
 }
 
-func (h *Heap[T]) Extract() (T, bool) {
+func (h *Heap[T]) Pop(f func(T, T) bool) (T, bool) {
 	var val T
 	if h.Size() == 0 {
 		return val, false
@@ -25,7 +27,7 @@ func (h *Heap[T]) Extract() (T, bool) {
 	val = h.Data[0]
 	h.swap(0, h.Size()-1)
 	h.Data = h.Data[:h.Size()-1]
-	h.heapifyDown(0)
+	h.heapifyDown(f, 0)
 
 	return val, true
 }
@@ -34,31 +36,28 @@ func (h *Heap[T]) Size() int {
 	return len(h.Data)
 }
 
-func isSmaller[T constraints.Ordered](a, b T) bool {
-	return a < b
-}
+func (h *Heap[T]) heapifyUp(f func(T, T) bool, i int) {
 
-func (h *Heap[T]) heapifyUp(i int) {
-	for isSmaller(h.Data[parentIndex(i)], h.Data[i]) {
+	for f(h.Data[parentIndex(i)], h.Data[i]) {
 		h.swap(i, parentIndex(i))
 		i = parentIndex(i)
 	}
 }
 
-func (h *Heap[T]) heapifyDown(i int) {
+func (h *Heap[T]) heapifyDown(f func(T, T) bool, i int) {
 	l, r, largest := leftChildIndex(i), rightChildIndex(i), i
 
-	if l < len(h.Data) && isSmaller(h.Data[i], h.Data[l]) {
+	if l < len(h.Data) && f(h.Data[i], h.Data[l]) {
 		largest = l
 	}
 
-	if r < len(h.Data) && isSmaller(h.Data[largest], h.Data[r]) {
+	if r < len(h.Data) && f(h.Data[largest], h.Data[r]) {
 		largest = r
 	}
 
 	if largest != i {
 		h.swap(i, largest)
-		h.heapifyDown(largest)
+		h.heapifyDown(f, largest)
 	}
 }
 
