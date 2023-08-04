@@ -10,6 +10,7 @@ _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 * [Binary Tree](binary_tree/binary_tree.go)
 * [AVL Tree](avl_tree/avl_tree.go)
 * [Heap](heap/heap.go)
+* [Graph](graph/graph.go)
 
 ## Algorithms
 * [Sorting](sort/sort.go)
