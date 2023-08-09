@@ -1,14 +1,10 @@
 package heap
 
-import (
-	"golang.org/x/exp/constraints"
-)
-
-type Heap[T constraints.Ordered] struct {
+type Heap[T any] struct {
 	Data []T
 }
 
-func NewHeap[T constraints.Ordered]() *Heap[T] {
+func NewHeap[T any]() *Heap[T] {
 	return &Heap[T]{
 		Data: make([]T, 0),
 	}
