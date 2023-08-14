@@ -3,12 +3,12 @@ package graph
 // Node (AKA a Vertex) contains a slice of edges which is all
 // of its connections to other nodes.
 type Node[T comparable] struct {
-	Label T
+	Value T
 	Edges []*Edge[T]
 }
 
-func NewNode[T comparable](lbl T) Node[T] {
-	return Node[T]{Label: lbl}
+func NewNode[T comparable](val T) Node[T] {
+	return Node[T]{Value: val}
 }
 
 func (n *Node[T]) AddEdge(to *Node[T], weight int) {
@@ -36,11 +36,11 @@ func unvisited[T comparable](edges []*Edge[T]) []*Node[T] {
 }
 
 // trvse recursively walks through the entire graph
-func bfs[T comparable](node *Node[T], labels *[]T) {
+func bfs[T comparable](node *Node[T], vals *[]T) {
 	if node != nil {
-		*labels = append(*labels, node.Label)
+		*vals = append(*vals, node.Value)
 		for _, n := range unvisited(node.Edges) {
-			bfs(n, labels)
+			bfs(n, vals)
 		}
 	}
 }
@@ -48,7 +48,7 @@ func bfs[T comparable](node *Node[T], labels *[]T) {
 // BreadthFirst traverses through the directed graph visiting nodes
 // until it has traveled via all edges.
 func BreadthFirst[T comparable](start *Node[T]) []T {
-	lbls := []T{}
-	bfs(start, &lbls)
-	return lbls
+	vals := []T{}
+	bfs(start, &vals)
+	return vals
 }

@@ -215,7 +215,7 @@ func TestBalancedValuesPreOrder(t *testing.T) {
 func TestUnbalancedValuesInOrder(t *testing.T) {
 	tree := new[int]()
 
-	want := []int{1, 9, 8, 7, 6, 5, 4, 3, 2}
+	want := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 	tree.Add(1)
 	tree.Add(2)
@@ -243,7 +243,7 @@ func TestUnbalancedValuesInOrder(t *testing.T) {
 func TestBalancedValuesInOrder(t *testing.T) {
 	tree := new[int]()
 
-	want := []int{1, 4, 7, 6, 3, 8, 13, 14, 10, 2}
+	want := []int{1, 3, 4, 6, 7, 8, 10, 13, 14}
 
 	tree.Add(8)
 	tree.Add(3)
@@ -270,5 +270,65 @@ func TestRemoveNil(t *testing.T) {
 
 	if err == nil {
 		t.Error("no error from remove empty item")
+	}
+}
+
+func TestInOrder(t *testing.T) {
+	tree := new[int]()
+
+	want := []int{2, 3, 4, 6, 8}
+
+	tree.Add(3)
+	tree.Add(6)
+	tree.Add(8)
+	tree.Add(4)
+	tree.Add(2)
+
+	got := tree.ValuesInOrder(tree.Root)
+
+	for i, v := range got {
+		if want[i] != got[i] {
+			t.Errorf("value at %d: want %d, got %d ", i, want[i], v)
+		}
+	}
+}
+
+func TestPreOrderValues(t *testing.T) {
+	tree := new[int]()
+
+	want := []int{3, 2, 6, 4, 8}
+
+	tree.Add(3)
+	tree.Add(6)
+	tree.Add(8)
+	tree.Add(4)
+	tree.Add(2)
+
+	got := tree.ValuesPreOrder(tree.Root)
+
+	for i, v := range got {
+		if want[i] != got[i] {
+			t.Errorf("value at %d: want %d, got %d ", i, want[i], v)
+		}
+	}
+}
+
+func TestPostOrderValues(t *testing.T) {
+	tree := new[int]()
+
+	want := []int{2, 4, 8, 6, 3}
+
+	tree.Add(3)
+	tree.Add(6)
+	tree.Add(8)
+	tree.Add(4)
+	tree.Add(2)
+
+	got := tree.ValuesPostOrder(tree.Root)
+
+	for i, v := range got {
+		if want[i] != got[i] {
+			t.Errorf("value at %d: want %d, got %d ", i, want[i], v)
+		}
 	}
 }

@@ -25,7 +25,6 @@ func TestTraverseGraph(t *testing.T) {
 
 	nodeD.AddEdge(&nodeE, 2)
 	nodeD.AddEdge(&nodeF, 10)
-
 	nodeD.AddEdge(&nodeG, 2)
 
 	nodeE.AddEdge(&nodeG, 5)

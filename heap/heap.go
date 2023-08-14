@@ -10,12 +10,12 @@ func NewHeap[T any]() *Heap[T] {
 	}
 }
 
-func (h *Heap[T]) Push(f func(T, T) bool, v T) {
+func (h *Heap[T]) Insert(f func(T, T) bool, v T) {
 	h.Data = append(h.Data, v)
-	h.heapifyUp(f, (len(h.Data) - 1))
+	h.siftUp(f, (len(h.Data) - 1))
 }
 
-func (h *Heap[T]) Pop(f func(T, T) bool) (T, bool) {
+func (h *Heap[T]) Extract(f func(T, T) bool) (T, bool) {
 	var val T
 	if h.Size() == 0 {
 		return val, false
@@ -23,7 +23,7 @@ func (h *Heap[T]) Pop(f func(T, T) bool) (T, bool) {
 	val = h.Data[0]
 	h.swap(0, h.Size()-1)
 	h.Data = h.Data[:h.Size()-1]
-	h.heapifyDown(f, 0)
+	h.siftDown(f, 0)
 
 	return val, true
 }
@@ -32,7 +32,7 @@ func (h *Heap[T]) Size() int {
 	return len(h.Data)
 }
 
-func (h *Heap[T]) heapifyUp(f func(T, T) bool, i int) {
+func (h *Heap[T]) siftUp(f func(T, T) bool, i int) {
 
 	for f(h.Data[parentIndex(i)], h.Data[i]) {
 		h.swap(i, parentIndex(i))
@@ -40,7 +40,7 @@ func (h *Heap[T]) heapifyUp(f func(T, T) bool, i int) {
 	}
 }
 
-func (h *Heap[T]) heapifyDown(f func(T, T) bool, i int) {
+func (h *Heap[T]) siftDown(f func(T, T) bool, i int) {
 	l, r, largest := leftChildIndex(i), rightChildIndex(i), i
 
 	if l < len(h.Data) && f(h.Data[i], h.Data[l]) {
@@ -53,7 +53,7 @@ func (h *Heap[T]) heapifyDown(f func(T, T) bool, i int) {
 
 	if largest != i {
 		h.swap(i, largest)
-		h.heapifyDown(f, largest)
+		h.siftDown(f, largest)
 	}
 }
 

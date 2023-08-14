@@ -178,8 +178,8 @@ func (bt *BinaryTree[T]) preOrderTraversal(node *Node[T], vals *[]T) {
 
 	if node != zero {
 		*vals = append(*vals, node.Value)
-		bt.postOrderTraversal(node.Left, vals)
-		bt.postOrderTraversal(node.Right, vals)
+		bt.preOrderTraversal(node.Left, vals)
+		bt.preOrderTraversal(node.Right, vals)
 	}
 }
 
@@ -195,12 +195,12 @@ func (bt *BinaryTree[T]) ValuesPreOrder(node *Node[T]) []T {
 }
 
 func (bt *BinaryTree[T]) inOrderTraversal(node *Node[T], vals *[]T) {
-	var zero *Node[T]
+	// var zero *Node[T]
 
-	if node != zero {
-		bt.postOrderTraversal(node.Left, vals)
+	if node != nil {
+		bt.inOrderTraversal(node.Left, vals)
 		*vals = append(*vals, node.Value)
-		bt.postOrderTraversal(node.Right, vals)
+		bt.inOrderTraversal(node.Right, vals)
 	}
 }
 

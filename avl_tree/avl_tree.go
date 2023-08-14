@@ -60,8 +60,14 @@ func rotateRight[T constraints.Ordered](node *Node[T]) *Node[T] {
 	x.rightChild = node
 	node.leftChild = tmp
 
-	node.height = max(height(node.leftChild), height(node.rightChild)) + 1
-	x.height = max(height(x.leftChild), height(x.rightChild)) + 1
+	node.height = max(
+		height(node.leftChild),
+		height(node.rightChild),
+	) + 1
+	x.height = max(
+		height(x.leftChild),
+		height(x.rightChild),
+	) + 1
 	return x
 }
 
@@ -72,8 +78,15 @@ func rotateLeft[T constraints.Ordered](node *Node[T]) *Node[T] {
 	y.leftChild = node
 	node.rightChild = tmp
 
-	node.height = max(height(node.leftChild), height(node.rightChild)) + 1
-	y.height = max(height(y.leftChild), height(y.rightChild)) + 1
+	node.height = max(
+		height(node.leftChild),
+		height(node.rightChild),
+	) + 1
+
+	y.height = max(
+		height(y.leftChild),
+		height(y.rightChild),
+	) + 1
 
 	return y
 }
