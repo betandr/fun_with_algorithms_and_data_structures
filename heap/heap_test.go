@@ -43,7 +43,7 @@ func TestMinHeapExtract(t *testing.T) {
 	heap.Insert(min[int], 99)
 	heap.Insert(min[int], want)
 
-	got, ok := heap.Extract(max[int])
+	got, ok := heap.Extract(min[int])
 
 	if !ok {
 		t.Errorf("error extracting item from heap")
