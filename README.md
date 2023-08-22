@@ -2,6 +2,8 @@
 
 _"Algorithms + Data Structures = Programs" - Niklaus Wirth_
 
+NB: This code isn't at all production ready. It's intended for educational purposes only. 
+
 ## Data Structures
 * [Node Chain](node_chain/node_chain.go)
 * [Linked List](linked_list/linked_list.go)
